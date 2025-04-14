@@ -1,0 +1,16 @@
+deployment:
+  tasks:
+    # Mensaje informativo (opcional)
+    - echo "Creando la carpeta de destino si no existe..."
+    
+    # Crea la carpeta de destino
+    - mkdir -p /home/yrlw6zt44s5b/public_html/repo
+
+    # Mensaje informativo (opcional)
+    - echo "Copiando el contenido del repositorio al directorio de despliegue..."
+
+    # Copia recursivamente el contenido del repositorio, excluyendo la carpeta .git
+    - rsync -av --exclude='.git' . /home/yrlw6zt44s5b/public_html/repo
+
+    # Mensaje informativo final (opcional)
+    - echo "Despliegue completado correctamente."
